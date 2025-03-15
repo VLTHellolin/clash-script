@@ -1,0 +1,19 @@
+{
+  "name": "clash-script",
+  "description": "My extend script",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.5.2",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup && node scripts/postbuild.js",
+    "lint": "eslint --fix ."
+  },
+  "devDependencies": {
+    "@hellolin/eslint-config": "^0.4.0",
+    "eslint": "^9.22.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
