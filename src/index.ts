@@ -58,19 +58,19 @@ const foreignNameservers = [
   'https://8.8.8.8/dns-query',
 ];
 const nameservers = [
-  ...domesticNameservers,
   ...foreignNameservers,
+  ...domesticNameservers,
 ];
 
 const dnsConfig: DNSConfig = {
   'enable': true,
-  'ipv6': true,
-  'use-system-hosts': false,
-  'listen': '0.0.0.0:1053',
+  'use-hosts': true,
+  'use-system-hosts': true,
   'enhanced-mode': 'fake-ip',
-  'cache-algorithm': 'arc',
-  'fake-ip-range': '198.18.0.1/16',
+  'fake-ip-range': '28.0.0.1/8',
+  'fake-ip-filter-mode': 'blacklist',
   'fake-ip-filter': [
+    '**',
     '+.lan',
     '+.local',
     '+.msftconnecttest.com',
@@ -88,9 +88,25 @@ const dnsConfig: DNSConfig = {
   'nameserver': nameservers,
   'proxy-server-nameserver': nameservers,
   'nameserver-policy': {
-    'geosite:private,cn,geolocation-cn': domesticNameservers,
-    'geosite:geolocation-!cn': foreignNameservers,
+    'geosite:private,cn': domesticNameservers,
   },
+  'fallback': [
+    ...foreignNameservers,
+    'tls://8.8.4.4:853',
+    'system',
+  ],
+  'fallback-filter': {
+    geoip: true,
+    ipcidr: [
+      '240.0.0.0/4',
+      '0.0.0.0/32',
+    ],
+  },
+};
+const hostsConfig: Record<string, string> = {
+  'localhost': '127.0.0.1',
+  'time.android.com': '203.107.6.88',
+  'time.facebook.com': '203.107.6.88',
 };
 
 function generateProxyGroups() {
@@ -171,16 +187,21 @@ function generateRules() {
   return result;
 }
 
-export function main(config: any) {
-  Object.assign(config, {
+export function main(config: any): any {
+  return {
+    'profile': {
+      'store-selected': true,
+      'store-fake-ip': true,
+    },
+    'unified-delay': true,
     'dns': dnsConfig,
+    'hosts': hostsConfig,
+    'proxies': config.proxies,
     'rule-providers': generateRuleProviders(),
     'rules': generateRules(),
     'proxy-groups': [
       ...generateProxyGroups(),
       ...groupProxies(config.proxies),
     ],
-  });
-
-  return config;
+  };
 }

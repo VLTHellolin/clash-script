@@ -16,6 +16,13 @@ export interface DNSConfig {
   'nameserver-policy'?: Record<string, string[]>;
   'nameserver'?: string[];
   'fallback'?: string[];
+  'fallback-filter'?: {
+    'geoip'?: boolean;
+    'geoip-code'?: string;
+    'geosite'?: string[];
+    'ipcidr'?: string[];
+    'domain'?: string[];
+  };
   'proxy-server-nameserver'?: string[];
   'direct-nameserver'?: string[];
   'direct-nameserver-follow-policy'?: boolean;
