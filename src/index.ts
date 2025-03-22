@@ -15,6 +15,7 @@ const regions = [
 
 const proxyGroups = [
   { name: 'CDN', icon: 'Rocket' },
+  { name: 'Downloads', icon: 'Server' },
   { name: 'Stream', icon: 'Media' },
   { name: 'AI', icon: 'ChatGPT' },
   { name: 'Telegram', icon: 'Telegram' },
@@ -39,7 +40,7 @@ const rulesets: Record<string, string[]> = {
   apple_cn: ['DIRECT', 'non_ip'],
   microsoft_cdn: ['DIRECT', 'non_ip'],
   microsoft: ['Microsoft', 'non_ip'],
-  download: ['DIRECT', 'domainset', 'non_ip'],
+  download: ['Downloads', 'domainset', 'non_ip'],
   lan: ['DIRECT', 'non_ip', 'ip'],
   domestic: ['DIRECT', 'non_ip', 'ip'],
   direct: ['DIRECT', 'non_ip'],
