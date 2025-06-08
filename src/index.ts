@@ -5,11 +5,21 @@ const rulesetURL = 'https://ruleset.skk.moe/';
 
 const regions = [
   { name: 'HongKong', regex: /香港|HK|Hong|🇭🇰/, icon: 'Hong_Kong' },
+  { name: 'Macao', regex: /澳门|MO|Macao|🇲🇴/, icon: 'Macao' },
   { name: 'Taiwan', regex: /台湾|TW|Taiwan|Wan|🇨🇳|🇹🇼/, icon: 'China' },
   { name: 'Singapore', regex: /新加坡|狮城|SG|Singapore|🇸🇬/, icon: 'Singapore' },
   { name: 'Japan', regex: /日本|JP|Japan|🇯🇵/, icon: 'Japan' },
+  { name: 'Korea', regex: /韩国|KR|Korea|🇰🇷/, icon: 'Korea' },
   { name: 'USA', regex: /美国|US|United States|America|🇺🇸/, icon: 'United_States' },
+  { name: 'Canada', regex: /加拿大|Canada|🇨🇦/, icon: 'Canada' },
+  { name: 'Russia', regex: /俄罗斯|俄国|RU|Russia|🇷🇺/, icon: 'Russia' },
   { name: 'UK', regex: /英国|UK|EN|GB|United Kingdom|Britain|England|🇬🇧/, icon: 'United_Kingdom' },
+  { name: 'France', regex: /法国|FR|France|🇫🇷/, icon: 'France' },
+  { name: 'Germany', regex: /德国|DE|Germany|Deutschland|🇩🇪/, icon: 'Germany' },
+  { name: 'Australia', regex: /澳大利亚|澳洲|AU|Australia|🇦🇺/, icon: 'Australia' },
+  { name: 'Brazil', regex: /巴西|BR|Brazil|🇧🇷/, icon: 'Brazil' },
+  { name: 'India', regex: /印度|IN|India|🇮🇳/, icon: 'India' },
+  { name: 'Turkey', regex: /土耳其|TR|Turkey|🇹🇷/, icon: 'Turkey' },
   { name: 'Others', icon: 'World_Map' },
 ];
 
