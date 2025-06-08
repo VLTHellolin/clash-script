@@ -22,6 +22,7 @@ const regions = [
   { name: 'Turkey', regex: /土耳其|TR|Turkey|🇹🇷/, icon: 'Turkey' },
   { name: 'Others', icon: 'World_Map' },
 ];
+const filteredRegions: string[] = [];
 
 const proxyGroups = [
   { name: 'CDN', icon: 'Rocket' },
@@ -125,23 +126,25 @@ function generateProxyGroups() {
     ({
       name: group.name,
       icon: `${cdn}gh/Koolson/Qure/IconSet/Color/${group.icon}.png`,
-      proxies: ['DIRECT', 'HongKong', 'Taiwan', 'Singapore', 'Japan', 'USA', 'UK', 'Others'],
+      proxies: ['DIRECT', ...filteredRegions],
       type: 'select',
     }));
 }
 
 function groupProxies(proxies: any) {
-  const result = regions.map(region =>
-    ({
-      regex: region.regex,
-      name: region.name,
-      icon: `${cdn}gh/Koolson/Qure/IconSet/Color/${region.icon}.png`,
-      proxies: [] as string[],
-      type: 'select',
-      url: 'https://www.gstatic.com/generate_204',
-      interval: 1800,
-      lazy: true,
-    }));
+  const result = regions
+    .filter(region => filteredRegions.includes(region.name))
+    .map(region =>
+      ({
+        regex: region.regex,
+        name: region.name,
+        icon: `${cdn}gh/Koolson/Qure/IconSet/Color/${region.icon}.png`,
+        proxies: [] as string[],
+        type: 'select',
+        url: 'https://www.gstatic.com/generate_204',
+        interval: 1800,
+        lazy: true,
+      }));
 
   for (const proxy of proxies) {
     for (const region of result) {
@@ -153,7 +156,9 @@ function groupProxies(proxies: any) {
   }
 
   for (const region of result) {
-    region.proxies.push('DIRECT'); // Placeholder
+    if (region.name === 'Others') {
+      region.proxies.push('DIRECT'); // Placeholder
+    }
     delete region.regex;
   }
 
@@ -198,7 +203,20 @@ function generateRules() {
   return result;
 }
 
+function filterRegions(proxies: any) {
+  for (const region of regions) {
+    for (const proxy of proxies) {
+      if (region.regex === undefined || region.regex.test(proxy.name)) {
+        filteredRegions.push(region.name);
+        break;
+      }
+    }
+  }
+}
+
 export function main(config: any): any {
+  filterRegions(config.proxies);
+
   return {
     'profile': {
       'store-selected': true,
