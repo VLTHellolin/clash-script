@@ -1,0 +1,95 @@
+dns:
+  enable: true
+  ipv6: false
+  cache-algorithm: arc
+  enhanced-mode: fake-ip
+  use-hosts: true
+  use-system-hosts: true
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - +.m2m
+    - +.bogon
+    - +.localdomain
+    - +.home.arpa
+    - +.10.in-addr.arpa
+    - +.254.169.in-addr.arpa
+    - +.16.172.in-addr.arpa
+    - +.17.172.in-addr.arpa
+    - +.18.172.in-addr.arpa
+    - +.19.172.in-addr.arpa
+    - +.20.172.in-addr.arpa
+    - +.21.172.in-addr.arpa
+    - +.22.172.in-addr.arpa
+    - +.23.172.in-addr.arpa
+    - +.24.172.in-addr.arpa
+    - +.25.172.in-addr.arpa
+    - +.26.172.in-addr.arpa
+    - +.27.172.in-addr.arpa
+    - +.28.172.in-addr.arpa
+    - +.29.172.in-addr.arpa
+    - +.30.172.in-addr.arpa
+    - +.31.172.in-addr.arpa
+    - +.168.192.in-addr.arpa
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - local.adguard.org
+    - injections.adguard.org
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.market.xiaomi.com
+    - xbox.*.*.microsoft.com
+    - +.xboxlive.com
+    - +.ipv6.microsoft.com
+    - +.turn.twilio.com
+    - +.stun.twilio.com
+    - stun.*.*
+    - stun.*.*.*
+    - time.windows.com
+    - time.apple.com
+    - time.asia.apple.com
+    - time.ustc.edu.cn
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - localhost.work.weixin.qq.com
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 1.1.1.1
+    - 8.8.8.8
+    - 208.67.222.222
+    - system
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://208.67.222.222/dns-query
+    - https://149.112.112.112/dns-query
+  nameserver-policy:
+    '+.arpa':
+      - '10.0.0.1'
+    'geosite:private,cn':
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+  fallback:
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - 'tls://8.8.4.4:853'
+    - system
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+    domain:
+      - +.google.com
+      - +.facebook.com
+      - +.twitter.com
+      - +.x.com
+      - +.youtube.com
+      - +.googleapis.cn
+      - +.googleapis.com

@@ -1,0 +1,64 @@
+proxy-groups-anchor:
+  select: &select
+    type: select
+    include-all: true
+    exclude_type: direct
+  select-from: &select-from
+    type: select
+    proxies: [HK, TW, US, EU, SG, JP, KR, World, DIRECT]
+
+proxy-groups:
+  - name: HK
+    <<: *select
+    filter: 香港|HK|HongKong|Hong Kong|🇭🇰
+    icon: https://api.iconify.design/twemoji:flag-hong-kong-sar-china.svg
+  - name: TW
+    <<: *select
+    filter: 台湾|TW|Taiwan|🇨🇳|🇹🇼
+    icon: https://api.iconify.design/twemoji:flag-china.svg
+  - name: US
+    <<: *select
+    filter: 美国|US|United States|America|🇺🇸
+    icon: https://api.iconify.design/twemoji:flag-united-states.svg
+  - name: EU
+    <<: *select
+    filter: 欧|EU|🇪🇺|英|UK|GB|United Kingdom|Britain|England|🇬🇧|法|FR|France|🇫🇷|德|DE|Germany|Deutschland|🇩🇪
+    icon: https://api.iconify.design/twemoji:flag-european-union.svg
+  - name: SG
+    <<: *select
+    filter: 新加坡|狮城|SG|Singapore|🇸🇬
+    icon: https://api.iconify.design/twemoji:flag-singapore.svg
+  - name: JP
+    <<: *select
+    filter: 日本|JP|Japan|🇯🇵
+    icon: https://api.iconify.design/twemoji:flag-japan.svg
+  - name: KR
+    <<: *select
+    filter: 韩国|KR|Korea|🇰🇷
+    icon: https://api.iconify.design/twemoji:flag-south-korea.svg
+  - name: World
+    <<: *select
+    icon: https://api.iconify.design/fluent-emoji-flat:world-map.svg
+
+  - name: CDN
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:rocket.svg
+  - name: AI
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:bookmark-tabs.svg
+  - name: Telegram
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:ringed-planet.svg
+  - name: Apple
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:red-apple.svg
+  - name: Microsoft
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:window.svg
+  - name: Download
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:card-file-box.svg
+
+  - name: Default
+    <<: *select-from
+    icon: https://api.iconify.design/fluent-emoji-flat:bullseye.svg

@@ -1,19 +1,19 @@
 {
   "name": "clash-script",
-  "description": "My extend script",
-  "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.5.2",
+  "private": true,
+  "packageManager": "bun@1.3.1",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "scripts": {
-    "build": "tsup && node scripts/postbuild.js",
+    "build": "bun run ./src/index.ts",
     "lint": "eslint --fix ."
   },
   "devDependencies": {
-    "@hellolin/eslint-config": "^0.4.0",
-    "eslint": "^9.22.0",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "@hellolin-eslint/node-config": "^2.1.1",
+    "@hellolin/eslint-config": "^2.1.1",
+    "@types/bun": "^1.3.1",
+    "eslint": "^9.38.0",
+    "typescript": "^5.9.3"
   }
 }

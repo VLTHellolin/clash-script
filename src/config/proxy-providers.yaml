@@ -1,0 +1,11 @@
+proxy-providers:
+  remote:
+    type: http
+    url: ${REMOTE_PROVIDER_URL}
+    interval: 86400
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 600
+      timeout: 5000
+      expected-status: 204

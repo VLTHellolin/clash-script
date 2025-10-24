@@ -1,0 +1,6 @@
+ipv6: true
+unified-delay: false
+global-client-fingerprint: chrome
+profile:
+  store-selected: true
+  store-fake-ip: true
