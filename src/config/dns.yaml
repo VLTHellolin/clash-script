@@ -54,30 +54,26 @@ dns:
     - localhost.ptlogin2.qq.com
     - localhost.sec.qq.com
     - localhost.work.weixin.qq.com
+    - geosite:connectivity-check
+    - geosite:private
   default-nameserver:
     - 223.5.5.5
-    - 119.29.29.29
-    - 1.1.1.1
     - 8.8.8.8
-    - 208.67.222.222
+  direct-nameserver:
     - system
+  proxy-server-nameserver:
+    - system
+    - 223.5.5.5
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - https://208.67.222.222/dns-query
-    - https://149.112.112.112/dns-query
+    - https://8.8.8.8/dns-query&ecs=120.76.0.0/14&ecs-override=true&skip-cert-verify=true
   nameserver-policy:
     '+.arpa':
-      - '10.0.0.1'
+      - 10.0.0.1
     'geosite:private,cn':
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
+      - 223.5.5.5
   fallback:
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - 'tls://8.8.4.4:853'
+    - tls://8.8.4.4
+    - tls://1.1.1.1
     - system
   fallback-filter:
     geoip: true
@@ -85,6 +81,8 @@ dns:
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
+    geosite:
+      - gfw
     domain:
       - +.google.com
       - +.facebook.com

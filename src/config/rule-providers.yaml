@@ -4,11 +4,6 @@ rule-providers-anchor:
     behavior: classical
     format: text
     interval: 43200
-  ip: &ip
-    type: http
-    behavior: ipcidr
-    format: text
-    interval: 43200
   domain: &domain
     type: http
     behavior: domain
@@ -46,36 +41,18 @@ rule-providers:
   stream_us_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/stream_us.txt
-  stream_us_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/stream_us.txt
   stream_eu_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/stream_eu.txt
-  stream_eu_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/stream_eu.txt
   stream_jp_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/stream_jp.txt
-  stream_jp_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/stream_jp.txt
   stream_kr_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/stream_kr.txt
-  stream_kr_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/stream_kr.txt
   stream_hk_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/stream_hk.txt
-  stream_hk_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/stream_hk.txt
-  stream_tw_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/stream_tw.txt
   stream_tw_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/stream_tw.txt
@@ -112,18 +89,3 @@ rule-providers:
   lan_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/lan.txt
-  lan_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/lan.txt
-  domestic_non_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/non_ip/domestic.txt
-  domestic_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/domestic.txt
-  direct_non_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/non_ip/direct.txt
-  china_ip:
-    <<: *ip
-    url: https://ruleset.skk.moe/Clash/ip/china_ip.txt

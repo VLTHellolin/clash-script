@@ -1,54 +1,52 @@
 rules:
-  - RULE-SET,reject_non_ip,REJECT
+  # custom
+  - DOMAIN-SUFFIX,local,DIRECT
+  - DOMAIN-SUFFIX,hellolin.top,DIRECT
+  - DOMAIN-SUFFIX,sharepoint.com,DIRECT
+  - DOMAIN-SUFFIX,my-sharepoint.com,DIRECT
+  - DOMAIN-SUFFIX,lmstudio.ai,DIRECT
+  - DOMAIN-SUFFIX,steamserver.net,DIRECT
+  - DOMAIN,local.adguard.org,DIRECT
+  - PROCESS-NAME-REGEX,^Thunder.*,DIRECT
+  - PROCESS-NAME-REGEX,^ThunderVIP.*,DIRECT
+  - PROCESS-NAME-REGEX,^qBittorrent.*,DIRECT
+  - PROCESS-NAME-REGEX,^uTorrent.*,DIRECT
+  - PROCESS-NAME-REGEX,^BitTorrent.*,DIRECT
+  - PROCESS-NAME-REGEX,^WebTorrent.*,DIRECT
+  - PROCESS-NAME-REGEX,^BitComet.*,DIRECT
+  - PROCESS-NAME-REGEX,^aria2c.*,DIRECT
+  - PROCESS-NAME,Deluge,DIRECT
+  - PROCESS-NAME,Transmission,DIRECT
+  # ruleset
   - RULE-SET,reject_domainset,REJECT
+  - RULE-SET,speedtest,DIRECT
+  - RULE-SET,cdn_domainset,CDN
+  - RULE-SET,apple_cdn,DIRECT
+  - RULE-SET,download_domainset,Download
+  - GEOSITE,CN,DIRECT
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
+  # no optimization
+  - RULE-SET,reject_non_ip,REJECT
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
   - RULE-SET,reject_non_ip_no_drop,REJECT
   - RULE-SET,reject_ip,REJECT
-
-  - RULE-SET,speedtest,DIRECT
-
-  - RULE-SET,cdn_domainset,CDN
+  - RULE-SET,lan_non_ip,DIRECT
   - RULE-SET,cdn_non_ip,CDN
-
   - RULE-SET,stream_us_non_ip,US
-  - RULE-SET,stream_us_ip,US
   - RULE-SET,stream_eu_non_ip,EU
-  - RULE-SET,stream_eu_ip,EU
   - RULE-SET,stream_jp_non_ip,JP
-  - RULE-SET,stream_jp_ip,JP
   - RULE-SET,stream_kr_non_ip,KR
-  - RULE-SET,stream_kr_ip,KR
   - RULE-SET,stream_hk_non_ip,HK
-  - RULE-SET,stream_hk_ip,HK
   - RULE-SET,stream_tw_non_ip,TW
-  - RULE-SET,stream_tw_ip,TW
-
   - RULE-SET,ai_non_ip,AI
-
   - RULE-SET,telegram_non_ip,Telegram
   - RULE-SET,telegram_ip,Telegram
-
-  - RULE-SET,apple_cdn,DIRECT
   - RULE-SET,apple_services,Apple
   - RULE-SET,apple_cn_non_ip,DIRECT
-
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   - RULE-SET,microsoft_non_ip,Microsoft
-
-  - RULE-SET,download_domainset,Download
   - RULE-SET,download_non_ip,Download
-
-  - RULE-SET,lan_non_ip,DIRECT
-  - RULE-SET,lan_ip,DIRECT
-
-  - RULE-SET,domestic_non_ip,DIRECT
-  - RULE-SET,domestic_ip,DIRECT
-  - RULE-SET,direct_non_ip,DIRECT
-
-  - RULE-SET,china_ip,DIRECT,no-resolve
-
-  - GEOSITE,CN,DIRECT
-  - GEOIP,LAN,DIRECT,no-resolve
-  - GEOIP,CN,DIRECT,no-resolve
-
+  # default
   - MATCH,Default
