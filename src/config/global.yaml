@@ -1,6 +1,31 @@
+mode: rule
 ipv6: true
 unified-delay: false
+tcp-concurrent: true
+find-process-mode: strict
 global-client-fingerprint: chrome
 profile:
   store-selected: true
   store-fake-ip: true
+
+allow-lan: true
+lan-allowed-ips:
+  - 0.0.0.0/0
+  - ::/0
+authentication:
+  - 'root:${AUTH_TOKEN}'
+skip-auth-prefixes:
+  - 127.0.0.1/32
+
+geodata-mode: false
+geo-auto-update: true
+goe-update-interval: 480
+geox-url:
+  geoip: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat'
+  geosite: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat'
+  mmdb: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb'
+  asn: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb'
+
+external-controller: 127.0.0.1:${EXTERNAL_PORT}
+external-ui: ui
+external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
