@@ -1,6 +1,7 @@
 import dns from './config/dns.yaml';
 import global from './config/global.yaml';
 import hosts from './config/hosts.yaml';
+import inbound from './config/inbound.yaml';
 import proxyGroups from './config/proxy-groups.yaml';
 import proxyProviders from './config/proxy-providers.yaml';
 import ruleProviders from './config/rule-providers.yaml';
@@ -15,6 +16,7 @@ const result = Bun.YAML.stringify({
   ...global,
   ...dns,
   ...sniffer,
+  ...inbound,
   ...hosts,
   ...proxyGroups,
   ...proxyProviders,

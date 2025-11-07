@@ -1,0 +1,16 @@
+mixed-port: 7890
+
+tun:
+  enable: true
+  stack: mixed
+  device: ${TUN_DEVICE_NAME}
+  auto-route: true
+  auto-redirect: false
+  auto-detect-interface: true
+  strict-route: ${TUN_STRICT_ROUTE}
+  mtu: 1500
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+    - 8.8.8.8:53
+    - 8.8.4.4:53
