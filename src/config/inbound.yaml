@@ -7,7 +7,7 @@ tun:
   auto-route: true
   auto-redirect: false
   auto-detect-interface: true
-  strict-route: ${TUN_STRICT_ROUTE}
+  strict-route: true
   mtu: 1500
   dns-hijack:
     - any:53
