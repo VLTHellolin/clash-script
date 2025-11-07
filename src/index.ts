@@ -5,14 +5,16 @@ import proxyGroups from './config/proxy-groups.yaml';
 import proxyProviders from './config/proxy-providers.yaml';
 import ruleProviders from './config/rule-providers.yaml';
 import rules from './config/rules.yaml';
+import sniffer from './config/sniffer.yaml';
 
 const interpolateEnvVars = (str: string): string => {
   return str.replace(/\$\{(\w+)\}/g, (_, key) => process.env[key] || '');
 };
 
 const result = Bun.YAML.stringify({
-  ...dns,
   ...global,
+  ...dns,
+  ...sniffer,
   ...hosts,
   ...proxyGroups,
   ...proxyProviders,
