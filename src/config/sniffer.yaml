@@ -13,6 +13,7 @@ sniffer:
       ports: [443, 8443]
   skip-domain:
     - Mijia Cloud
+    - dlg.io.mi.com
     - +.push.apple.com
   skip-dst-address:
     - 91.105.192.0/23

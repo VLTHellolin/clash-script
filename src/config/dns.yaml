@@ -1,5 +1,6 @@
 dns:
   enable: true
+  prefer-h3: true
   ipv6: false
   cache-algorithm: arc
   enhanced-mode: fake-ip
@@ -58,12 +59,13 @@ dns:
     - geosite:private
   default-nameserver:
     - 223.5.5.5
-    - 8.8.8.8
+  direct-nameserver-follow-policy: false
   direct-nameserver:
-    - system
-  proxy-server-nameserver:
-    - system
     - 223.5.5.5
+    - 119.29.29.29
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
   nameserver:
     - https://8.8.8.8/dns-query&ecs=120.76.0.0/14&ecs-override=true&skip-cert-verify=true
   nameserver-policy:
@@ -74,7 +76,6 @@ dns:
   fallback:
     - tls://8.8.4.4
     - tls://1.1.1.1
-    - system
   fallback-filter:
     geoip: true
     geoip-code: CN
