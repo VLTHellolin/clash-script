@@ -1,0 +1,17 @@
+DOMAIN-SUFFIX,local
+DOMAIN_SUFFIX,hellolin.top
+DOMAIN_SUFFIX,sharepoint.com
+DOMAIN_SUFFIX,my-sharepoint.com
+DOMAIN_SUFFIX,lmstudio.ai
+DOMAIN_SUFFIX,steamserver.net
+DOMAIN,local.adguard.org
+PROCESS-NAME,Deluge
+PROCESS-NAME,Transmission
+PROCESS-NAME-REGEX,^Thunder.*
+PROCESS-NAME-REGEX,^ThunderVIP.*
+PROCESS-NAME-REGEX,^qBittorrent.*
+PROCESS-NAME-REGEX,^uTorrent.*
+PROCESS-NAME-REGEX,^BitTorrent.*
+PROCESS-NAME-REGEX,^WebTorrent.*
+PROCESS-NAME-REGEX,^BitComet.*
+PROCESS-NAME-REGEX,^aria2c.*

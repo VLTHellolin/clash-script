@@ -11,6 +11,9 @@ rule-providers-anchor:
     interval: 43200
 
 rule-providers:
+  custom_direct:
+    <<: *rules
+    url: https://cdn.hellolin.top/gh/VLTHellolin/clash-script@main/rules/direct.txt
   reject_non_ip_no_drop:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt

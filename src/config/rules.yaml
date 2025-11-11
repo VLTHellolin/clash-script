@@ -1,32 +1,12 @@
 rules:
   # custom
-  - DOMAIN-SUFFIX,local,DIRECT
-  - DOMAIN-SUFFIX,hellolin.top,DIRECT
-  - DOMAIN-SUFFIX,sharepoint.com,DIRECT
-  - DOMAIN-SUFFIX,my-sharepoint.com,DIRECT
-  - DOMAIN-SUFFIX,lmstudio.ai,DIRECT
-  - DOMAIN-SUFFIX,steamserver.net,DIRECT
-  - DOMAIN,local.adguard.org,DIRECT
-  - PROCESS-NAME-REGEX,^Thunder.*,DIRECT
-  - PROCESS-NAME-REGEX,^ThunderVIP.*,DIRECT
-  - PROCESS-NAME-REGEX,^qBittorrent.*,DIRECT
-  - PROCESS-NAME-REGEX,^uTorrent.*,DIRECT
-  - PROCESS-NAME-REGEX,^BitTorrent.*,DIRECT
-  - PROCESS-NAME-REGEX,^WebTorrent.*,DIRECT
-  - PROCESS-NAME-REGEX,^BitComet.*,DIRECT
-  - PROCESS-NAME-REGEX,^aria2c.*,DIRECT
-  - PROCESS-NAME,Deluge,DIRECT
-  - PROCESS-NAME,Transmission,DIRECT
+  - RULE-SET,custom_direct,DIRECT
   # ruleset
   - RULE-SET,reject_domainset,REJECT
   - RULE-SET,speedtest,DIRECT
   - RULE-SET,cdn_domainset,CDN
   - RULE-SET,apple_cdn,DIRECT
   - RULE-SET,download_domainset,Download
-  - GEOSITE,CN,DIRECT
-  - GEOSITE,geolocation-cn,DIRECT
-  - GEOIP,LAN,DIRECT,no-resolve
-  - GEOIP,CN,DIRECT,no-resolve
   # no optimization
   - RULE-SET,reject_non_ip,REJECT
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
@@ -48,5 +28,8 @@ rules:
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   - RULE-SET,microsoft_non_ip,Microsoft
   - RULE-SET,download_non_ip,Download
+  - GEOSITE,geolocation-!cn@cn,DIRECT
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOSITE,tld-cn,DIRECT
   # default
   - MATCH,Default
