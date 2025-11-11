@@ -26,12 +26,6 @@ rule-providers:
   reject_domainset:
     <<: *domain
     url: https://ruleset.skk.moe/Clash/domainset/reject.txt
-  # reject_extra_domainset:
-  #   <<: *domain
-  #   url: https://ruleset.skk.moe/Clash/domainset/reject_extra.txt
-  reject_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/reject.txt
   speedtest:
     <<: *domain
     url: https://ruleset.skk.moe/Clash/domainset/speedtest.txt
@@ -65,9 +59,6 @@ rule-providers:
   telegram_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/telegram.txt
-  telegram_ip:
-    <<: *rules
-    url: https://ruleset.skk.moe/Clash/ip/telegram.txt
   apple_cdn:
     <<: *domain
     url: https://ruleset.skk.moe/Clash/domainset/apple_cdn.txt
@@ -92,3 +83,9 @@ rule-providers:
   lan_non_ip:
     <<: *rules
     url: https://ruleset.skk.moe/Clash/non_ip/lan.txt
+  domestic_non_ip:
+    <<: *rules
+    url: https://ruleset.skk.moe/Clash/non_ip/domestic.txt
+  direct_non_ip:
+    <<: *rules
+    url: https://ruleset.skk.moe/Clash/non_ip/direct.txt

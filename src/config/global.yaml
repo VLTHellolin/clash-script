@@ -1,6 +1,6 @@
 mode: rule
 ipv6: true
-unified-delay: false
+unified-delay: true
 tcp-concurrent: true
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -21,8 +21,8 @@ geodata-mode: false
 geo-auto-update: true
 goe-update-interval: 480
 geox-url:
-  geoip: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat'
-  geosite: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat'
+  geoip: 'https://cdn.hellolin.top/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat'
+  geosite: 'https://cdn.hellolin.top/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat'
   mmdb: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb'
   asn: 'https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb'
 

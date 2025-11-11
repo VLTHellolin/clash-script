@@ -11,7 +11,6 @@ rules:
   - RULE-SET,reject_non_ip,REJECT
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
   - RULE-SET,reject_non_ip_no_drop,REJECT
-  - RULE-SET,reject_ip,REJECT
   - RULE-SET,lan_non_ip,DIRECT
   - RULE-SET,cdn_non_ip,CDN
   - RULE-SET,stream_us_non_ip,US
@@ -22,14 +21,12 @@ rules:
   - RULE-SET,stream_tw_non_ip,TW
   - RULE-SET,ai_non_ip,AI
   - RULE-SET,telegram_non_ip,Telegram
-  - RULE-SET,telegram_ip,Telegram
   - RULE-SET,apple_services,Apple
   - RULE-SET,apple_cn_non_ip,DIRECT
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   - RULE-SET,microsoft_non_ip,Microsoft
   - RULE-SET,download_non_ip,Download
-  - GEOSITE,geolocation-!cn@cn,DIRECT
-  - GEOSITE,geolocation-cn,DIRECT
-  - GEOSITE,tld-cn,DIRECT
+  - RULE-SET,domestic_non_ip,DIRECT
+  - RULE-SET,direct_non_ip,DIRECT
   # default
   - MATCH,Default

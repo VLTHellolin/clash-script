@@ -2,7 +2,7 @@ mixed-port: 7890
 
 tun:
   enable: true
-  stack: mixed
+  stack: system
   device: ${TUN_DEVICE_NAME}
   auto-route: true
   auto-redirect: false
